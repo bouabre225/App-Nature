@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/weather_widget.dart';
 class HomeScreen extends StatelessWidget{
   const HomeScreen({super.key});
 
@@ -13,65 +13,77 @@ class HomeScreen extends StatelessWidget{
            child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
                children: [
-           //Search Bar
-           Row(
-           children: [
-           Expanded(
-           child: Container(
-           padding: const EdgeInsets.symmetric(horizontal: 16),
-           decoration: BoxDecoration(
-             color: Colors.white,
-             borderRadius: BorderRadius.circular(15),
-             boxShadow: [
-               BoxShadow(
-                 color: Colors.black.withOpacity(0.05),
-                 blurRadius: 10,
-                 offset: const Offset(0, 2),
-               ),
-             ],
-           ),
-           child: Row(
-             children: [
-               Icon(Icons.search, color: Colors.grey[400], size: 20),
-               const SizedBox(width: 12),
-               Expanded(
-                 child: TextField(
-                   decoration: InputDecoration(
-                     hintText: 'Search your location...',
-                     hintStyle: TextStyle(
-                       color: Colors.grey[400],
-                       fontSize: 14,
+                 //Search Bar
+                 Row(
+                 children: [
+                 Expanded(
+                 child: Container(
+                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                 decoration: BoxDecoration(
+                   color: Colors.white,
+                   borderRadius: BorderRadius.circular(15),
+                   boxShadow: [
+                     BoxShadow(
+                       color: Colors.black.withOpacity(0.05),
+                       blurRadius: 10,
+                       offset: const Offset(0, 2),
                      ),
-                     border: InputBorder.none,
-                   ),
+                   ],
+                 ),
+                 child: Row(
+                   children: [
+                     Icon(Icons.search, color: Colors.grey[400], size: 20),
+                     const SizedBox(width: 12),
+                     Expanded(
+                       child: TextField(
+                         decoration: InputDecoration(
+                           hintText: 'Search your location...',
+                           hintStyle: TextStyle(
+                             color: Colors.grey[400],
+                             fontSize: 14,
+                           ),
+                           border: InputBorder.none,
+                         ),
+                       ),
+                     ),
+                   ],
                  ),
                ),
+             ),
+             const SizedBox(width: 12),
+             Container(
+               padding: const EdgeInsets.all(12),
+               decoration: BoxDecoration(
+                 color: Colors.white,
+                 borderRadius: BorderRadius.circular(15),
+                 boxShadow: [
+                   BoxShadow(
+                     color: Colors.black.withOpacity(0.05),
+                     blurRadius: 10,
+                     offset: const Offset(0, 2),
+                   ),
+                 ],
+               ),
+               child: Icon(
+                 Icons.tune,
+                 color: Colors.grey[700],
+                 size: 20,
+               ),
+             ),
              ],
            ),
-         ),
-       ),
-       const SizedBox(width: 12),
-       Container(
-         padding: const EdgeInsets.all(12),
-         decoration: BoxDecoration(
-           color: Colors.white,
-           borderRadius: BorderRadius.circular(15),
-           boxShadow: [
-             BoxShadow(
-               color: Colors.black.withOpacity(0.05),
-               blurRadius: 10,
-               offset: const Offset(0, 2),
-             ),
-           ],
-         ),
-         child: Icon(
-           Icons.tune,
-           color: Colors.grey[700],
-           size: 20,
-         ),
-       ),
-       ],
-     )]
+
+                 //Section Today Weather
+                 const SizedBox(height: 20),
+                 const Text(
+                     'Today Weather',
+                     style: TextStyle(
+                       fontSize: 22,
+                       fontWeight: FontWeight.bold,
+                     ),
+                 ),
+                 const WeatherWidget(),
+               ]
     ))))
    );
   }
