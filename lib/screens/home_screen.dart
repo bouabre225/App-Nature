@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/weather_widget.dart';
+import '../widgets/disease_card.dart';
 class HomeScreen extends StatelessWidget{
   const HomeScreen({super.key});
 
@@ -83,6 +84,43 @@ class HomeScreen extends StatelessWidget{
                      ),
                  ),
                  const WeatherWidget(),
+
+                 //Diseases Section
+
+                 const SizedBox(height: 20),
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children: [
+                     const Text(
+                       'Diseases',
+                       style: TextStyle(
+                         fontSize: 22,
+                         fontWeight: FontWeight.bold,
+                       ),
+                     ),
+                     TextButton(
+                       onPressed: () {},
+                       child: const Text(
+                         'See all',
+                         style: TextStyle(
+                           color: Colors.black,
+                           fontSize: 14,
+                         ),
+                       ),
+                     ),
+                   ],
+                 ),
+
+                 const SizedBox(height: 12),
+                 SizedBox(
+                   height: 220,
+                   child: ListView(
+                     scrollDirection: Axis.horizontal,
+                     children: const [
+                       DiseaseCard(),
+                     ],
+                   ),
+                 ),
                ]
     ))))
    );
