@@ -1,16 +1,77 @@
-import 'package:flutter/cupertino.dart';
+import 'home_screen.dart';
+import 'package:flutter/material.dart';
 
 class MainNavigation extends StatefulWidget{
   const MainNavigation({super.key});
 
   @override
-  State<StatefulWidget> createState() => _MainNavigationState();
+  State<MainNavigation> createState() => _MainNavigationState();
 }
 
 class _MainNavigationState extends State<MainNavigation>{
+  int _currentIndex = 0;
+  final List<Widget> _screens = [
+    const HomeScreen()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+   return Scaffold(
+     body: _screens[_currentIndex],
+     bottomNavigationBar: Container(
+       decoration: BoxDecoration(
+         boxShadow: [
+           BoxShadow(
+             color: Colors.black,
+             blurRadius: 10,
+             offset: const Offset(0, -5),
+           ),
+         ],
+       ),
+       child: BottomNavigationBar(
+           currentIndex: _currentIndex,
+           onTap: (index){
+             setState(() {
+               _currentIndex = index;
+             });
+           },
+         items: [
+           BottomNavigationBarItem(
+             icon: Container(
+               padding: const EdgeInsets.all(12),
+               decoration: BoxDecoration(
+                 color: Colors.transparent,
+                 shape: BoxShape.circle,
+               ),
+               child: const Icon(Icons.home, size: 24),
+             ),
+             label: '',
+           ),
+           BottomNavigationBarItem(
+             icon: Container(
+               padding: const EdgeInsets.all(12),
+               decoration: BoxDecoration(
+                 color: Colors.transparent,
+                 shape: BoxShape.circle,
+               ),
+               child: const Icon(Icons.eco, size: 24),
+             ),
+             label: '',
+           ),
+           BottomNavigationBarItem(
+             icon: Container(
+               padding: const EdgeInsets.all(12),
+               decoration: BoxDecoration(
+                 color: Colors.transparent,
+                 shape: BoxShape.circle,
+               ),
+               child: const Icon(Icons.person, size: 24),
+             ),
+             label: '',
+           ),
+         ],
+       ),
+     ),
+   );
   }
 }
