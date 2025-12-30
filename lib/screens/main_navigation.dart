@@ -1,3 +1,5 @@
+import 'package:app_nature/screens/plants_screen.dart';
+
 import 'home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,8 @@ class MainNavigation extends StatefulWidget{
 class _MainNavigationState extends State<MainNavigation>{
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    const HomeScreen()
+    const HomeScreen(),
+    const PlantsScreen(),
   ];
 
   @override
