@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/image_helper.dart';
 import '../widgets/weather_widget.dart';
 import '../widgets/disease_card.dart';
 class HomeScreen extends StatelessWidget{
@@ -117,7 +118,18 @@ class HomeScreen extends StatelessWidget{
                    child: ListView(
                      scrollDirection: Axis.horizontal,
                      children: const [
-                       DiseaseCard(),
+                       DiseaseCard(
+                         title: 'Angular',
+                         description: 'Leaf spot of cu...',
+                         time: 'Today 2:00 PM',
+                         imageUrl: ImageHelper.angularDisease,
+                       ),
+                       DiseaseCard(
+                         title: 'Ascochyta',
+                         description: 'Blight',
+                         time: 'Today 4:00 PM',
+                         imageUrl: ImageHelper.ascochytaDisease,
+                       ),
                      ],
                    ),
                  ),
