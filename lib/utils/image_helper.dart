@@ -7,9 +7,18 @@ class ImageHelper {
   static const String zucchini = 'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400';
   static const String gherkin = 'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=400';
 
+  // Vegetables
+  static const String beetroot = 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400';
+  static const String peas = 'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=400';
+
   // Diseases
   static const String angularDisease = 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=400';
   static const String ascochytaDisease = 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400';
+
+  // Profiles
+  static const String wolfgang = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400';
+  static const String tasha = 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400';
+  static const String backgroundGarden = 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800';
 
   // Plants varieties
   static const String garlic = 'https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400';
