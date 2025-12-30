@@ -1,4 +1,5 @@
 import 'package:app_nature/screens/plants_screen.dart';
+import 'package:app_nature/screens/profile_screen.dart';
 
 import 'home_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class _MainNavigationState extends State<MainNavigation>{
   final List<Widget> _screens = [
     const HomeScreen(),
     const PlantsScreen(),
+    const ProfileScreen(),
   ];
 
   @override
