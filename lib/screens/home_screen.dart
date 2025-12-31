@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/weather_widget.dart';
 import '../widgets/disease_card.dart';
-import '../utils/image_helper.dart';
+import '../utils/images_helper.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 
-                // Today Weather Section
+                // Weather Section
                 const SizedBox(height: 20),
                 const Text(
                   'Today Weather',
