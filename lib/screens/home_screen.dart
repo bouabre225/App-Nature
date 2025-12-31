@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const WeatherWidget(),
+                const WeatheWidget(),
                 
                 // Diseases Section
                 const SizedBox(height: 20),
