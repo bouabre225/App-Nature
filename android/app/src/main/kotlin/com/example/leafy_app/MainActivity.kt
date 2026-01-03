@@ -1,4 +1,4 @@
-package com.example.app_nature
+package com.example.leafy_app
 
 import io.flutter.embedding.android.FlutterActivity
 
