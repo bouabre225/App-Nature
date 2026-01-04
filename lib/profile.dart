@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfileVegetablesPage extends StatelessWidget {
-  const ProfileVegetablesPage({Key? key}) : super(key: key);
+  const ProfileVegetablesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class ProfileVegetablesPage extends StatelessWidget {
               background: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.network(
-                    'https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=800',
+                  Image.asset(
+                    '/laitue.jpg',
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(color: Colors.green.shade100);
@@ -29,8 +29,12 @@ class ProfileVegetablesPage extends StatelessWidget {
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [Colors.transparent, Colors.white.withOpacity(0.3), Colors.white],
-                        stops: const [0.0, 0.6, 1.0],
+                        colors: [
+                          Colors.transparent, 
+                          Colors.white.withOpacity(0.3), 
+                          Colors.white
+                        ],
+                        stops: [0.0, 0.6, 1.0],
                       ),
                     ),
                   ),
@@ -45,11 +49,16 @@ class ProfileVegetablesPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.white, width: 4),
-                          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 5))],
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1), blurRadius: 10, 
+                              offset: Offset(0, 5)
+                            )
+                          ],
                         ),
                         child: ClipOval(
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
+                          child: Image.asset(
+                            '/profil.jpg',
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) {
                               return Container(color: Colors.grey.shade300, child: const Icon(Icons.person, size: 60, color: Colors.white));
@@ -69,29 +78,68 @@ class ProfileVegetablesPage extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 16),
-                  const Text('Wolfgang palme', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black87)),
+                  const Text(
+                    'Wolfgang palme', 
+                    style: TextStyle(
+                      fontSize: 24, 
+                      fontWeight: FontWeight.bold, 
+                      color: Colors.black87
+                    )
+                  ),
                   const SizedBox(height: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(5, (index) => Icon(Icons.star, color: Colors.yellow.shade700, size: 20)),
+                    children: List.generate(
+                      5, (index) => Icon(
+                        Icons.star, 
+                        color: Colors.yellow.shade700, 
+                        size: 20
+                      )
+                    ),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'A pioneer in winter vegetable cultivation at olivetia.com\nand raikes livestock, providing essential food\nwhile ensuring sustainable agriculture.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 13, color: Colors.grey.shade600, height: 1.5),
+                    style: TextStyle(
+                      fontSize: 13, 
+                      color: Colors.grey.shade600, 
+                      height: 1.5
+                    ),
                   ),
                   const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.group, size: 18, color: Colors.grey.shade600),
+                      Icon(
+                        Icons.group, 
+                        size: 18, 
+                        color: Colors.grey.shade600
+                      ),
                       const SizedBox(width: 6),
-                      Text('632 Follow', style: TextStyle(fontSize: 14, color: Colors.grey.shade700, fontWeight: FontWeight.w500)),
+                      Text(
+                        '632 Follow', 
+                        style: TextStyle(
+                          fontSize: 14, 
+                          color: Colors.grey.shade700, 
+                          fontWeight: FontWeight.w500
+                        )
+                      ),
                       const SizedBox(width: 20),
-                      Icon(Icons.people, size: 18, color: Colors.grey.shade600),
+                      Icon(
+                        Icons.people, 
+                        size: 18, 
+                        color: Colors.grey.shade600
+                      ),
                       const SizedBox(width: 6),
-                      Text('632 Followers', style: TextStyle(fontSize: 14, color: Colors.grey.shade700, fontWeight: FontWeight.w500)),
+                      Text(
+                        '632 Followers', 
+                        style: TextStyle(
+                          fontSize: 14, 
+                          color: Colors.grey.shade700, 
+                          fontWeight: FontWeight.w500
+                        )
+                      ),
                     ],
                   ),
                   const SizedBox(height: 24),
@@ -107,10 +155,13 @@ class ProfileVegetablesPage extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.grey.shade200),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle, 
+                            color: Colors.grey.shade200
+                          ),
                           child: ClipOval(
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200',
+                            child: Image.asset(
+                              '/mini.jpg',
                               fit: BoxFit.cover,
                               errorBuilder: (context, error, stackTrace) {
                                 return Icon(Icons.person, color: Colors.grey.shade400, size: 30);
@@ -123,9 +174,22 @@ class ProfileVegetablesPage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Tasha Dominguez', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black87)),
+                              const Text(
+                                'Tasha Dominguez', 
+                                style: TextStyle(
+                                  fontSize: 16, 
+                                  fontWeight: FontWeight.w600, 
+                                  color: Colors.black87
+                                )
+                              ),
                               const SizedBox(height: 2),
-                              Text('Agriculture Specialist', style: TextStyle(fontSize: 13, color: Colors.grey.shade600)),
+                              Text(
+                                'Agriculture Specialist', 
+                                style: TextStyle(
+                                  fontSize: 13, 
+                                  color: Colors.grey.shade600
+                                )
+                              ),
                             ],
                           ),
                         ),
@@ -151,24 +215,41 @@ class ProfileVegetablesPage extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 200,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                children: [
-                  _buildVegetableCard('Carrots', 'Carrots are a...', 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400'),
-                  const SizedBox(width: 12),
-                  _buildVegetableCard('Beetroot', 'The beetroot...', 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400'),
-                  const SizedBox(width: 12),
-                  _buildVegetableCard('Peas', 'Peas are...', 'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=400'),
-                  const SizedBox(width: 12),
-                  _buildVegetableCard('Lettuce', 'Fresh lettuce...', 'https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=400'),
-                ],
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              sliver: SliverGrid(
+                delegate: SliverChildListDelegate(
+                  [
+                    _buildVegetableCard(
+                      'Carrots', 
+                      'Carrots are a...', 
+                      '/carotte.jpg'
+                    ),
+                    _buildVegetableCard(
+                      'Beetroot', 
+                      'The beetroot...', 
+                      '/breetroot.jpg'
+                    ),
+                    _buildVegetableCard(
+                     'Peas', 
+                     'Peas are...', 
+                     '/poids.jpg'
+                    ),
+                    _buildVegetableCard(
+                      'Lettuce', 
+                      'Fresh lettuce...', 
+                      '/laitue.jpg'
+                    ),
+                  ],
+                ),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                  childAspectRatio: 0.82,
+                ),
               ),
             ),
-          ),
           const SliverToBoxAdapter(child: SizedBox(height: 80)),
         ],
       ),
@@ -196,14 +277,14 @@ class ProfileVegetablesPage extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(
               top: Radius.circular(16),
             ),
-            child: Image.network(
+            child: Image.asset(
               imageUrl,
-              width: 120,
-              height: 120,
+              width: 200,
+              height: 110,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
-                  width: 120,
+                  width: 200,
                   height: 120,
                   color: Colors.grey.shade200,
                   child: const Icon(Icons.image, size: 40),
@@ -252,36 +333,6 @@ class ProfileVegetablesPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(IconData icon, bool isActive, {bool isAdd = false}) {
-    if (isAdd) {
-      return Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.green.shade600,
-          shape: BoxShape.circle,
-        ),
-        child: Icon(
-          icon,
-          color: Colors.white,
-          size: 24,
-        ),
-      );
-    }
-
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: isActive ? Colors.green.shade600 : Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Icon(
-        icon,
-        color: isActive ? Colors.white : Colors.black54,
-        size: 24,
       ),
     );
   }
