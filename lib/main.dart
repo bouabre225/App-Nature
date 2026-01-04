@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'care.dart';  // Correction: c'était "care.dart"
+import 'care.dart';
 import 'profile.dart';
 
 void main() {
@@ -8,123 +8,87 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Garden App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        fontFamily: 'SF Pro',
-      ),
-      home: const MainNavigationPage(),
+      home: const NavigationPage(),
     );
   }
 }
 
-class MainNavigationPage extends StatefulWidget {
-  const MainNavigationPage({Key? key}) : super(key: key);
+class NavigationPage extends StatefulWidget {
+  const NavigationPage({super.key});
 
   @override
-  State<MainNavigationPage> createState() => _MainNavigationPageState();
+  State<NavigationPage> createState() => _NavigationPageState();
 }
 
-class _MainNavigationPageState extends State<MainNavigationPage> {
-  int _currentIndex = 0;
+class _NavigationPageState extends State<NavigationPage> {
+  int currentIndex = 0;
 
-  final List<Widget> _pages = [
+  final List<Widget> pages = [
     const DiscoverYourPlantPage(),
     const WeatherPlantPage(),
-    const Center(child: Text('Add Page', style: TextStyle(fontSize: 24))),
-    const ProfileVegetablesPage(),
+    const ProfileVegetablesPage()
   ];
 
   void _onNavItemTapped(int index) {
-    if (index != 2) { // Skip the add button (index 2)
       setState(() {
-        _currentIndex = index > 2 ? index - 1 : index;
+        currentIndex = index;
       });
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
-        index: _currentIndex,
-        children: _pages,
+        index: currentIndex, 
+        children: pages
       ),
-      floatingActionButton: _buildBottomNav(),
+      bottomNavigationBar: _onBottomNav(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
-  Widget _buildBottomNav() {
+  Widget _onBottomNav() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(30),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 20,
-            offset: const Offset(0, 5),
-          ),
-        ],
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
         children: [
           _buildNavItem(Icons.home_rounded, 0),
-          const SizedBox(width: 20),
+          SizedBox(width: 20),
           _buildNavItem(Icons.local_florist, 1),
-          const SizedBox(width: 20),
-          _buildNavItem(Icons.add_circle, 2, isAdd: true),
-          const SizedBox(width: 20),
-          _buildNavItem(Icons.spa, 3),
-          const SizedBox(width: 20),
-          _buildNavItem(Icons.person, 4),
+          SizedBox(width: 20),
+          _buildNavItem(Icons.person, 2),
         ],
       ),
     );
   }
 
-  Widget _buildNavItem(IconData icon, int index, {bool isAdd = false}) {
-    if (isAdd) {
+  Widget _buildNavItem(IconData icon, int index) {
+    bool isActive = currentIndex == index;
+
       return GestureDetector(
-        onTap: () => _onNavItemTapped(index),
-        child: Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Colors.green.shade600,
-            shape: BoxShape.circle,
-          ),
-          child: Icon(icon, color: Colors.white, size: 24),
-        ),
-      );
-    }
-
-    int actualIndex = index > 2 ? index - 1 : index;
-    bool isActive = _currentIndex == actualIndex;
-
-    return GestureDetector(
       onTap: () => _onNavItemTapped(index),
       child: Container(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: isActive ? Colors.green.shade600 : Colors.transparent,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(14),
         ),
         child: Icon(
           icon,
+          size: 26,
           color: isActive ? Colors.white : Colors.black54,
-          size: 24,
         ),
       ),
     );
